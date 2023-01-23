@@ -1,12 +1,25 @@
+'use client'
+
+import {
+  ThemeProvider,
+  unstable_createMuiStrictModeTheme,
+} from "@mui/material";
+
+const theme = unstable_createMuiStrictModeTheme();
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <head />
-      <body>{children}</body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <html>
+        <head />
+        <body>
+          {children}
+          </body>
+      </html>
+    </ThemeProvider>
   );
 }
