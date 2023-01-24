@@ -1,4 +1,5 @@
-'use client'
+"use client";
+import "./styles/index.css";
 
 import {
   ThemeProvider,
@@ -16,9 +17,7 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <html>
         <head />
-        <body>
-          {children}
-          </body>
+        <body>{children}</body>
       </html>
     </ThemeProvider>
   );

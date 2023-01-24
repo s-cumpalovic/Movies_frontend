@@ -1,0 +1,34 @@
+/* Movie styles */
+
+:root{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movies-main {
+  margin: 10rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.movies-container {
+  width: 15rem;
+}
+
+.card-link a:visited,
+a:active,
+a:any-link {
+  text-decoration: none;
+}
+
+/* Landing div */
+.landing-page {
+  display: inline-block;
+  margin: 10rem 0 0 10rem;
+}
+
+.landing-header {
+  color: #ef5350;
+  font-size: 3rem;
+}

@@ -9,9 +9,9 @@ import { getItem } from "../../utils/helpers";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
-  const handleSubmit = async (data: IUserRegister) => {
-    const router = useRouter();
+  const router = useRouter();
 
+  const handleSubmit = async (data: IUserRegister) => {
     const response = await authService.register(data);
     console.log(response);
   };
