@@ -20,14 +20,16 @@ const MovieComponent = ({ ...movie }: IMovie) => {
               component="img"
               image={coverImage}
               alt="green iguana"
-              sx={{ maxWidth: 200, maxHeight: 200 }}
+              sx={{ width: 300, height: 300 }}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {description.substring(0, 100)}
+                {description.length > 70 || title.length > 15
+                  ? `${description.substring(0, 80)}..`
+                  : `${description}`}
               </Typography>
             </CardContent>
           </CardActionArea>
