@@ -4,6 +4,7 @@ export interface IMovie {
   description: string;
   coverImage: string;
   genre: string;
+  isNotSingleMovie?: boolean;
 }
 
 export interface IMovieForm {
@@ -13,6 +14,6 @@ export interface IMovieForm {
 }
 
 export interface IGenre {
-  _id?: string,
-  name: string,
+  _id?: string;
+  name: string;
 }

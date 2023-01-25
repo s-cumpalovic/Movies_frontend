@@ -17,13 +17,29 @@
 }
 
 .movies-container {
-  margin: 5rem
+  margin: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.single-movie-description {
+  padding: 2rem;
+  
 }
 
 .card-link a:visited,
 a:active,
 a:any-link {
   text-decoration: none;
+}
+
+.card-image {
+  display: inline-block;
+}
+
+.card-description {
+  display: inline-block;
 }
 
 /* Landing div */

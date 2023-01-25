@@ -18,6 +18,15 @@ class MovieService extends ApiService {
     }
   }
 
+  async getMovie(movieId: string | null) {
+    try {
+      const response = await this.client.get(`${ENDPOINTS.BASE}/${movieId}`);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   async createMovie(data: IMovie) {
     try {
       const response = await this.client.post(ENDPOINTS.BASE, data);
