@@ -1,5 +1,7 @@
 "use client";
 import "./styles/index.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import React from "react";
 
 import {
   ThemeProvider,
@@ -13,12 +15,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
-    <ThemeProvider theme={theme}>
-      <html>
-        <head />
-        <body>{children}</body>
-      </html>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <html>
+          <head />
+          <body>{children}</body>
+        </html>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }

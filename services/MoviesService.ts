@@ -7,9 +7,11 @@ const ENDPOINTS = {
 };
 
 class MovieService extends ApiService {
-  async getMovies() {
+  async getMovies(page: number = 1, limit: number = 10) {
     try {
-      const response = await this.client.get(ENDPOINTS.BASE);
+      const response = await this.client.get(
+        `${ENDPOINTS.BASE}/?page=${page}&limit=${limit}`
+      );
       return response.data;
     } catch (err) {
       console.error(err);

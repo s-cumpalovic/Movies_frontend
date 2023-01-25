@@ -7,13 +7,17 @@
 .movies-main {
   margin: 10rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
+}
+.movies-container-main {
+  display: flex;
+  justify-content: center;
 }
 
 .movies-container {
-  width: 15rem;
+  margin: 5rem
 }
 
 .card-link a:visited,
@@ -69,4 +73,15 @@ a:any-link {
   color: white;
   background-color: #ef5350;
   padding: 1rem;
+}
+
+.form-group select {
+  margin: 0.5rem 0 1rem 0;
+  padding: 0.7rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
 }

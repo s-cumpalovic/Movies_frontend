@@ -14,13 +14,13 @@ const MovieComponent = ({ ...movie }: IMovie) => {
   return (
     <div className="movies-container">
       <Link className="card-link" href={`http://localhost:3002/movies/${id}`}>
-        <Card key={id} sx={{ maxWidth: 350, height: 500 }}>
+        <Card key={id} sx={{ boxShadow: 3, margin: 2, maxWidth: 350, height: 500 }}>
           <CardActionArea>
             <CardMedia
               component="img"
               image={coverImage}
               alt="green iguana"
-              sx={{ width: 300, height: 300 }}
+              sx={{ boxShadow: 1 , padding: 3, marginRight: 2 , width: 300, height: 300 }}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
