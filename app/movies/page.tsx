@@ -6,9 +6,13 @@ import { IMovie } from "../../types/movie.type";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Pagination from "@mui/material/Pagination";
+import SearchBar from "../../components/SearchBar";
+import useDebounce from "@/utils/useDebounce";
 
 export default function Movies(): JSX.Element {
   const [page, setPage] = useState<number>(1);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const debouncedSearchValue = useDebounce(searchValue, 750);
 
   const handlePagination = (
     event: React.ChangeEvent<unknown>,
@@ -17,10 +21,14 @@ export default function Movies(): JSX.Element {
     setPage(value);
   };
 
-  const { isLoading, isError, error, data} = useQuery(
-    ["movies", page],
+  const handleSearch = async (data: any) => {
+    setSearchValue(data);
+  };
+
+  const { isLoading, isError, error, data } = useQuery(
+    ["movies", page, debouncedSearchValue],
     () => {
-      return movieService.getMovies(page);
+      return movieService.getMovies(page, undefined, debouncedSearchValue);
     },
     {
       refetchOnWindowFocus: false,
@@ -41,6 +49,13 @@ export default function Movies(): JSX.Element {
     <div className="main-container">
       <div className="landing-page">
         <h1 className="landing-header">IMDB movies showcase</h1>
+      </div>
+      <div className="search-bar">
+        <SearchBar
+          term={searchValue}
+          setTerm={setSearchValue}
+          onSubmit={handleSearch}
+        />
       </div>
       <div className="movies-container-main">
         <div className="movies-main">

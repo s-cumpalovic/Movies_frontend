@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 export interface IMovie {
   _id?: string;
   title: string;
@@ -16,4 +18,10 @@ export interface IMovieForm {
 export interface IGenre {
   _id?: string;
   name: string;
+}
+
+export interface ISearchBar {
+  term: string,
+  setTerm: (value: SetStateAction<string>) => void;
+  onSubmit: (e: any) => void;
 }
