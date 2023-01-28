@@ -5,7 +5,7 @@ export interface IMovie {
   title: string;
   description: string;
   coverImage: string;
-  genre: string;
+  genres: IGenre[];
   isNotSingleMovie?: boolean;
 }
 
@@ -21,7 +21,7 @@ export interface IGenre {
 }
 
 export interface ISearchBar {
-  term: string,
+  term: string;
   setTerm: (value: SetStateAction<string>) => void;
   onSubmit: (e: any) => void;
 }

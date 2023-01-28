@@ -2,7 +2,7 @@ import * as React from "react";
 import { ISearchBar } from "@/types/movie.type";
 import { useForm } from "react-hook-form";
 
-export default function SearchBar({ term, setTerm, onSubmit }: ISearchBar): JSX.Element {
+export default function SearchBar({ term, setTerm, onSubmit,}: ISearchBar): JSX.Element {
   const { register } = useForm();
   return (
     <input

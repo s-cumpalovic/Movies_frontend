@@ -10,6 +10,8 @@ export const REFRESH_TOKEN = "refresh_token";
 
 // Movies
 
+export const MOVIES_ENDPOINT = "http://localhost:3002/movies";
+
 export const moviesCardOptions = {
   boxShadow: 3,
   margin: 2,
@@ -36,3 +38,8 @@ export const oneMovieOptions = {
   width: 700,
   height: 700,
 };
+
+// Navbar
+export const ALL_MOVIES: string = "All Movies";
+export const LOGIN: string = "Login";
+export const REGISTER: string = "Register";

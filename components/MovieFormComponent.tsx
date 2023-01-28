@@ -13,7 +13,7 @@ export const MovieFormComponent: React.FC<IMovieForm> = ({
       title: data.title,
       description: data.description,
       coverImage: data.image,
-      genre: data.genre,
+      genres: data.genre,
     });
   };
 
@@ -27,10 +27,10 @@ export const MovieFormComponent: React.FC<IMovieForm> = ({
         <label>Cover image</label>
         <input {...register("image")} type="url" required />
         <label>Genre</label>
-        <select {...register("genre")} required>
+        <select {...register("genre")} required multiple>
           {genres.map((genre: any) => (
-            <option key={genre._id} value={genre.genre}>
-              {genre.genre}
+            <option key={genre._id} value={genre._id}>
+              {genre.name}
             </option>
           ))}
         </select>

@@ -8,8 +8,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Link from "next/link";
-import { allMoviesOptions, moviesCardOptions } from "@/utils/static";
+import { allMoviesOptions, moviesCardOptions, MOVIES_ENDPOINT,} from "@/utils/static";
 import { oneMovieCardOptions, oneMovieOptions } from "../utils/static";
+import descAndGenresHandler from "../utils/helpers";
 
 const MovieComponent = ({ ...movie }: IMovie) => {
   const {
@@ -17,13 +18,15 @@ const MovieComponent = ({ ...movie }: IMovie) => {
     title,
     description,
     coverImage,
-    genre,
+    genres,
     isNotSingleMovie = true,
   } = movie || {};
   return (
     <div className="movies-container">
       <div className="card-image">
-        <Link className="card-link" href={`http://localhost:3002/movies/${id}`}>
+        {/* All Movies components */}
+
+        <Link className="card-link" href={`${MOVIES_ENDPOINT}/${id}`}>
           <Card
             key={id}
             sx={isNotSingleMovie ? moviesCardOptions : oneMovieCardOptions}
@@ -32,7 +35,6 @@ const MovieComponent = ({ ...movie }: IMovie) => {
               <CardMedia
                 component="img"
                 image={coverImage}
-                alt="green iguana"
                 sx={isNotSingleMovie ? allMoviesOptions : oneMovieOptions}
               />
               <CardContent>
@@ -40,19 +42,20 @@ const MovieComponent = ({ ...movie }: IMovie) => {
                   {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {isNotSingleMovie
-                    ? `${
-                        description.length > 70 || title.length > 15
-                          ? `${description.substring(0, 80)}..`
-                          : `${description}`
-                      }`
-                    : `${genre}`}
+                  {descAndGenresHandler(
+                    isNotSingleMovie,
+                    title,
+                    description,
+                    genres
+                  )}
                 </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
         </Link>
       </div>
+      {/* Single movie components */}
+
       {isNotSingleMovie ? (
         ""
       ) : (

@@ -115,3 +115,14 @@ a:any-link {
   font-size: 1rem;
   border-color: #ef5350;
 }
+
+.nav-items {
+  display: grid;
+}
+
+.nav-link {
+  margin: 2rem 2rem 2rem 0;
+  text-decoration: none;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+}
