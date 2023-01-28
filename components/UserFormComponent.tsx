@@ -1,13 +1,16 @@
 "use client";
 
-import { ILoginForm } from "@/types/user.type";
+import { ILoginForm, IRegisterForm } from "@/types/user.type";
 import { useForm } from "react-hook-form";
 
-export const UserFormComponent: React.FC<ILoginForm> = ({ onSubmit }) => {
+export const UserFormComponent: React.FC<ILoginForm | IRegisterForm> = ({
+  onSubmit,
+  isRegistration = false,
+}) => {
   const { register, handleSubmit } = useForm();
 
   const submitCallback = (data: any) => {
-    onSubmit({ email: data.email, password: data.password });
+    onSubmit({ name: data.name, email: data.email, password: data.password });
   };
 
   return (
@@ -18,7 +21,14 @@ export const UserFormComponent: React.FC<ILoginForm> = ({ onSubmit }) => {
 
         <label>Password</label>
         <input {...register("password")} type="password" required />
-        <button type="submit">Log in</button>
+        {isRegistration ? (
+          <>
+            <label>Name</label>
+            <input {...register("name")} type="text" required />
+          </>
+        ) : null}
+
+        <button type="submit">{isRegistration ? "Register" : "Log in"}</button>
       </form>
     </div>
   );

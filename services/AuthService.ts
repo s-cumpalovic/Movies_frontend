@@ -1,6 +1,6 @@
 import { ApiService } from "./ApiService";
-import { IUserLogin } from "../types/user.type";
-import { getItem, setItem } from "@/utils/helpers";
+import { IUserLogin, IUserRegister } from "../types/user.type";
+import { getItem, removeItem, setItem } from "@/utils/helpers";
 import { AxiosRequestConfig } from "axios";
 import jwtDecode from "jwt-decode";
 import { AUTHORIZATION } from "../utils/static";
@@ -78,6 +78,21 @@ class AuthService extends ApiService {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  async register(user: IUserRegister) {
+    try {
+      const response = await this.client.post(ENDPOINTS.REGISTER, user);
+      setItem("access_token", response.data.token);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async logout() {
+    removeItem("access_token");
+    removeItem("refresh_token");
   }
 }
 

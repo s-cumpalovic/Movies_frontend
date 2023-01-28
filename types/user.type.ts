@@ -20,6 +20,9 @@ export interface IRegisterResponse {
 
 export interface ILoginForm {
   onSubmit: (data: IUserLogin) => void;
+  isRegistration?: boolean;
 }
-
-
+export interface IRegisterForm {
+  onSubmit: (data: IUserRegister) => void;
+  isRegistration?: boolean;
+}
