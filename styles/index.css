@@ -4,9 +4,13 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  background-color: #F5F5F5;
+}
+
 .movies-main {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
 }
@@ -17,7 +21,7 @@
 }
 
 .movies-container {
-  margin: 5rem;
+  margin: 1rem;
   justify-content: center;
   display: flex;
 }
@@ -26,10 +30,12 @@
   padding: 2rem;
 }
 
+
 .card-link a:visited,
 a:active,
 a:any-link {
   text-decoration: none;
+  padding: 2rem;
 }
 
 .card-image {
@@ -47,7 +53,7 @@ a:any-link {
 }
 
 .landing-header {
-  color: #ef5350;
+  color: #9c27b0;
   font-size: 3rem;
 }
 
@@ -77,15 +83,15 @@ a:any-link {
 
 .form-group textarea {
   margin: 1rem 0 1rem 0;
-  height: 150px;
-  font-size: 16px;
+  height: 10rem;
+  font-size: 1rem;
   resize: none;
 }
 
 .form-group button {
   margin: 2rem 0 1rem 0;
   color: white;
-  background-color: #ef5350;
+  background-color: #9c27b0;
   padding: 1rem;
 }
 

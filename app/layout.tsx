@@ -1,5 +1,5 @@
 "use client";
-import "./styles/index.css";
+import "../styles/index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
 
@@ -7,6 +7,7 @@ import {
   ThemeProvider,
   unstable_createMuiStrictModeTheme,
 } from "@mui/material";
+import Navbar from "@/components/Navbar";
 
 const theme = unstable_createMuiStrictModeTheme();
 
@@ -22,7 +23,10 @@ export default function RootLayout({
       <ThemeProvider theme={theme}>
         <html>
           <head />
-          <body>{children}</body>
+          <body>
+            <Navbar />
+            {children}
+          </body>
         </html>
       </ThemeProvider>
     </QueryClientProvider>
