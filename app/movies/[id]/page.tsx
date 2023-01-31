@@ -4,6 +4,7 @@ import React from "react";
 import MovieComponent from "../../../components/MovieComponent";
 import { movieService } from "../../../services/MoviesService";
 import { useQuery } from "react-query";
+import Loader from "@/components/helperComponents/Loader";
 
 export default function SingleMovie({ params }: any): JSX.Element {
   const id = params.id;
@@ -13,7 +14,7 @@ export default function SingleMovie({ params }: any): JSX.Element {
   });
 
   if (isLoading) {
-    return <p>Loading..</p>;
+    return <Loader />;
   }
 
   if (isError) {

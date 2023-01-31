@@ -18,7 +18,7 @@ export default function Login(): JSX.Element {
   useEffect(() => {
     const token = getItem(ACCESS_TOKEN);
     if (token) {
-      router.push("/");
+      router.back();
     }
   });
 

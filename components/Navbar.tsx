@@ -24,7 +24,7 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography color="secondary" variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            IMDB
+            W-Movies
           </Typography>
           <Button href="/movies" color="secondary">
             Movies

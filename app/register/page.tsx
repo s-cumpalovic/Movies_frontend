@@ -19,7 +19,7 @@ export default function Register() {
   useEffect(() => {
     const token = getItem(ACCESS_TOKEN);
     if (token) {
-      router.push("/");
+      router.back();
     }
   });
 
